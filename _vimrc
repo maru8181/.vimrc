@@ -106,6 +106,8 @@ inoremap <C-d> <Del>
 
 nnoremap j gj
 nnoremap k gk
+nnoremap zj 5<C-e>
+nnoremap zk 5<C-y>
 nnoremap <C-]> g<C-]>
 nnoremap == gg=G''
 nnoremap <C-h> g<S-t>
@@ -122,6 +124,8 @@ nnoremap <S-y> y$
 nnoremap p ]p
 nnoremap <S-p> ]<S-p>
 nnoremap G Gzz
+nnoremap <CR> <CR>zz
+nnoremap <BS> kzz
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
 
 nnoremap <Space>h <C-w>h
@@ -132,10 +136,10 @@ nnoremap <Space><S-h> <C-w><S-h>
 nnoremap <Space><S-j> <C-w><S-j>
 nnoremap <Space><S-k> <C-w><S-k>
 nnoremap <Space><S-l> <C-w><S-l>
-nnoremap <Space>< <C-w><
-nnoremap <Space>> <C-w>>
-nnoremap <Space>- <C-w>-
-nnoremap <Space>+ <C-w>+
+nnoremap <Space>. 5<C-w><
+nnoremap <Space>, 5<C-w>>
+nnoremap <Space>- 5<C-w>-
+nnoremap <Space>+ 5<C-w>+
 nnoremap <Space>c :tabclose<CR>
 nnoremap <Space>o :only<CR>
 nnoremap <Space>n :tabnew<CR>
