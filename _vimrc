@@ -112,6 +112,8 @@ nnoremap <C-]> g<C-]>
 nnoremap == gg=G''
 nnoremap <C-h> g<S-t>
 nnoremap <C-l> gt
+nnoremap <Tab>l :+tabmove<CR>
+nnoremap <Tab>h :-tabmove<CR>
 nnoremap gl gt
 nnoremap <C-u> <S-j>
 nnoremap n nzz
