@@ -152,7 +152,8 @@ nnoremap <Space>e :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>v viwwwe
 nnoremap <Space>t :vert term<CR>
-nnoremap <Space>m :vnew <CR>
+nnoremap <Space>r :vert term<CR>cd ~/dotfiles/vimrc<CR>vim _vimrc<CR>
+nnoremap <Space>m :vnew<CR>
 nnoremap <Space>( ciw(<Space><C-r>+<Space>)<Esc>
 nnoremap <Space>[ ciw[<Space><C-r>+<Space>]<Esc>
 nnoremap <Space>{ ciw{<Space><C-r>+<Space>}<Esc>
@@ -196,6 +197,7 @@ vnoremap d "_d
 noremap <S-d> "_<S-d>
 noremap x "_x
 noremap s "_s
+noremap c "_c
 
 nnoremap t d
 onoremap t d
@@ -390,4 +392,10 @@ endfor
 
 autocmd BufRead,BufNewFile *.nc set filetype=c
 
-
+augroup netrw_mapping
+autocmd!
+autocmd filetype netrw call NetrwMapping()
+augroup END
+function! NetrwMapping()
+noremap <buffer> <C-l> gt
+endfunction
