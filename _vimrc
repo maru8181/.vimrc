@@ -97,7 +97,7 @@ set wildmode=list:longest
 
 inoremap <silent> jj <ESC>:w<CR>
 inoremap <silent> jk <ESC>
-inoremap <C-v> <C-r>+
+inoremap <C-s> <C-r>+
 inoremap <C-h> <Left>
 inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
@@ -152,7 +152,9 @@ nnoremap <Space>e :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>v viwwwe
 nnoremap <Space>t :vert term<CR>
-nnoremap <Space>r :vert term<CR>cd ~/dotfiles/vimrc<CR>vim _vimrc<CR>
+if has("mac")
+	nnoremap <Space>r :vert term<CR>cd ~/dotfiles/vimrc<CR>vim _vimrc<CR>
+endif
 nnoremap <Space>m :vnew<CR>
 nnoremap <Space>( ciw(<Space><C-r>+<Space>)<Esc>
 nnoremap <Space>[ ciw[<Space><C-r>+<Space>]<Esc>
@@ -183,7 +185,7 @@ if has('win32') || has('win64')
     nnoremap : +
 endif
 
-cnoremap <C-v> <C-r>+
+cnoremap <C-s> <C-r>+
 cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
