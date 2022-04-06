@@ -32,6 +32,7 @@ call dein#add('kristijanhusak/vim-hybrid-material')
 "    call dein#add('Shougo/neosnippet')
 "    call dein#add('Shougo/neosnippet-snippets')
 call dein#add('easymotion/vim-easymotion')
+call dein#add('vim-jp/vimdoc-ja')
 
 call dein#end()
 call dein#save_state()
@@ -97,12 +98,13 @@ set wildmode=list:longest
 
 inoremap <silent> jj <ESC>:w<CR>
 inoremap <silent> jk <ESC>
-inoremap <C-s> <C-r>+
+inoremap <C-v> <C-r>+
 inoremap <C-h> <Left>
 inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
 inoremap <C-l> <Right>
 inoremap <C-d> <Del>
+inoremap <C-s> <C-v>
 
 nnoremap j gj
 nnoremap k gk
@@ -185,7 +187,7 @@ if has('win32') || has('win64')
     nnoremap : +
 endif
 
-cnoremap <C-s> <C-r>+
+cnoremap <C-v> <C-r>+
 cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
@@ -193,6 +195,7 @@ cnoremap <C-l> <Right>
 cnoremap <C-f> <S-Right>
 cnoremap <C-b> <S-Left>
 cnoremap <C-d> <Del>
+cnoremap <C-s> <C-v>
 
 nnoremap d "_d
 vnoremap d "_d
