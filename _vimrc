@@ -171,6 +171,8 @@ nnoremap <Space>b :Buffers<CR>
 nnoremap <Space>h :History<CR>
 " nnoremap <Space>r :Rg<CR>
 
+nnoremap <Space>% :cd %:h<CR>:pwd<CR>
+
 nnoremap <Space>m :vnew<CR>
 nnoremap <Space>( ciw(<Space><C-r>+<Space>)<Esc>
 nnoremap <Space>[ ciw[<Space><C-r>+<Space>]<Esc>
