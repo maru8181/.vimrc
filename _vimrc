@@ -152,7 +152,11 @@ nnoremap <Space>e :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>v viwwwe
 nnoremap <Space>t :vert term<CR>
-nnoremap <Space>r :vert term<CR>cd ~/dotfiles/vimrc<CR>vim _vimrc<CR>
+if has('mac')
+	nnoremap <Space>r :vert term<CR>cd ~/dotfiles/vimrc<CR>vim _vimrc<CR>
+elseif has('win32') || has('win64')
+	nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
+endif
 nnoremap <Space>m :vnew<CR>
 nnoremap <Space>( ciw(<Space><C-r>+<Space>)<Esc>
 nnoremap <Space>[ ciw[<Space><C-r>+<Space>]<Esc>
@@ -296,6 +300,7 @@ set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 
 set tags=.tags;$HOME
+set tags+=./tags;
 
 function! s:execute_ctags() abort
 " 探すタグファイル名
