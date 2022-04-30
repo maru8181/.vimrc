@@ -32,6 +32,8 @@ call dein#add('kristijanhusak/vim-hybrid-material')
 "    call dein#add('Shougo/neosnippet')
 "    call dein#add('Shougo/neosnippet-snippets')
 call dein#add('easymotion/vim-easymotion')
+call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 
 call dein#end()
 call dein#save_state()
@@ -51,6 +53,11 @@ let g:EasyMotion_do_mapping = 0
 nmap <Space>s <Plug>(easymotion-s2)
 map <S-j> <Plug>(easymotion-w)
 map <S-k> <Plug>(easymotion-b)
+
+" fzf settings
+let $FZF_DEFAULT_OPTS="--layout=reverse"
+let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 
 syntax enable
 colorscheme hybrid_material
@@ -106,15 +113,14 @@ inoremap <C-d> <Del>
 
 nnoremap j gj
 nnoremap k gk
-nnoremap zj 5<C-e>
-nnoremap zk 5<C-y>
+" nnoremap zj 5<C-e>
+" nnoremap zk 5<C-y>
 nnoremap <C-]> g<C-]>
 nnoremap == gg=G''
 nnoremap <C-h> g<S-t>
 nnoremap <C-l> gt
 nnoremap <Tab>l :+tabmove<CR>
 nnoremap <Tab>h :-tabmove<CR>
-nnoremap gl gt
 nnoremap <C-u> <S-j>
 nnoremap n nzz
 nnoremap <S-n> <S-n>zz
@@ -157,6 +163,14 @@ if has('mac')
 elseif has('win32') || has('win64')
 	nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
 endif
+" fzf
+nnoremap <Space>f :Files<CR>
+" nnoremap <Space>g :GFiles<CR>
+" nnoremap <Space>G :GFiles?<CR>
+nnoremap <Space>b :Buffers<CR>
+nnoremap <Space>h :History<CR>
+" nnoremap <Space>r :Rg<CR>
+
 nnoremap <Space>m :vnew<CR>
 nnoremap <Space>( ciw(<Space><C-r>+<Space>)<Esc>
 nnoremap <Space>[ ciw[<Space><C-r>+<Space>]<Esc>
