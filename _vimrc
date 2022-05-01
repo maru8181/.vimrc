@@ -50,7 +50,7 @@ let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 
 let g:EasyMotion_do_mapping = 0
-nmap <Space>s <Plug>(easymotion-s2)
+" nmap <Space>s <Plug>(easymotion-s2)
 map <S-j> <Plug>(easymotion-w)
 map <S-k> <Plug>(easymotion-b)
 
@@ -151,12 +151,13 @@ nnoremap <Space>- 5<C-w>-
 nnoremap <Space>+ 5<C-w>+
 nnoremap <Space>c :tabclose<CR>
 nnoremap <Space>o :only<CR>
-nnoremap <Space>n :tabnew<CR>
 nnoremap <Space>w :w<CR>
-nnoremap <Space>g yiw:tabnew<CR>:vimgrep /<C-r>+/ **
+nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
 nnoremap <Space>e :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>t :vert term<CR>
+nnoremap <Space>s :tab sp<CR>
+nnoremap <Space>d :bd<CR>
 if has('mac')
 	nnoremap <Space>r :vert term<CR>cd ~/dotfiles/vimrc<CR>vim _vimrc<CR>
 elseif has('win32') || has('win64')
@@ -171,6 +172,7 @@ nnoremap <Space>f :Files<CR>
 " nnoremap <Space>r :Rg<CR>
 
 nnoremap <Space>% :cd %:h<CR>:pwd<CR>
+nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 
 nnoremap <Space>m :vnew<CR>
 nnoremap <Space>( ciw(<Space><C-r>+<Space>)<Esc>
@@ -182,7 +184,7 @@ nnoremap <Space>` ciw`<C-r>+`<Esc>
 nnoremap <Space>! %i!<Esc>%
 
 vnoremap <Space>e :s;\<<C-r>+\>;gc<Left><Left><Left>;
-vnoremap <Space>g y:tabnew<CR>:vimgrep /<C-r>+/ **
+vnoremap <Space>g y:tab sp<CR>:vimgrep /<C-r>+/ **
 vnoremap <Space>( c(<Space><C-r>+<Space>)<Esc>
 vnoremap <Space>[ c[<Space><C-r>+<Space>]<Esc>
 vnoremap <Space>{ c{<Space><C-r>+<Space>}<Esc>
