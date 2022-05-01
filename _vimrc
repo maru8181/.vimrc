@@ -135,7 +135,7 @@ nnoremap G Gzz
 nnoremap <CR> <CR>zz
 nnoremap <BS> kzz
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-nnoremap , ^d0
+nnoremap , :Buffers<CR>
 
 nnoremap <Space>h <C-w>h
 nnoremap <Space>j <C-w>j
@@ -156,7 +156,6 @@ nnoremap <Space>w :w<CR>
 nnoremap <Space>g yiw:tabnew<CR>:vimgrep /<C-r>+/ **
 nnoremap <Space>e :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
-nnoremap <Space>v viwwwe
 nnoremap <Space>t :vert term<CR>
 if has('mac')
 	nnoremap <Space>r :vert term<CR>cd ~/dotfiles/vimrc<CR>vim _vimrc<CR>
@@ -167,8 +166,8 @@ endif
 nnoremap <Space>f :Files<CR>
 " nnoremap <Space>g :GFiles<CR>
 " nnoremap <Space>G :GFiles?<CR>
-nnoremap <Space>b :Buffers<CR>
-nnoremap <Space>h :History<CR>
+" nnoremap <Space>b :Buffers<CR>
+" nnoremap <Space>h :History<CR>
 " nnoremap <Space>r :Rg<CR>
 
 nnoremap <Space>% :cd %:h<CR>:pwd<CR>
