@@ -115,10 +115,7 @@ inoremap <C-s> <C-v>
 
 nnoremap j gj
 nnoremap k gk
-" nnoremap zj 5<C-e>
-" nnoremap zk 5<C-y>
 nnoremap <C-]> g<C-]>
-" nnoremap == gg=G''
 nnoremap <C-h> g<S-t>
 nnoremap <C-l> gt
 nnoremap <Tab>l :+tabmove<CR>
