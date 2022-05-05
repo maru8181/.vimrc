@@ -158,7 +158,7 @@ nnoremap <Space>t :vert term<CR>
 nnoremap <Space>s :tab sp<CR>
 nnoremap <Space>d :bd<CR>
 if has('mac')
-	nnoremap <Space>r :vert term<CR>cd ~/dotfiles/vimrc<CR>vim _vimrc<CR>
+	nnoremap <Space>r :vert term<CR>cd ~/dev/dotfiles/vimrc<CR>vim _vimrc<CR>
 elseif has('win32') || has('win64')
 	nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
 endif
