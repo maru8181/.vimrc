@@ -32,8 +32,10 @@ call dein#add('kristijanhusak/vim-hybrid-material')
 "    call dein#add('Shougo/neosnippet')
 "    call dein#add('Shougo/neosnippet-snippets')
 call dein#add('easymotion/vim-easymotion')
+if has('mac')
 call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+endif
 
 call dein#end()
 call dein#save_state()
@@ -134,7 +136,9 @@ nnoremap G Gzz
 nnoremap <CR> <CR>zz
 nnoremap <BS> kzz
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+if has('mac')
 nnoremap , :Buffers<CR>
+endif
 
 nnoremap <Space>h <C-w>h
 nnoremap <Space>j <C-w>j
@@ -162,6 +166,8 @@ if has('mac')
 elseif has('win32') || has('win64')
 	nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
 endif
+
+if has('mac')
 " fzf
 nnoremap <Space>f :Files<CR>
 " nnoremap <Space>g :GFiles<CR>
@@ -169,6 +175,7 @@ nnoremap <Space>f :Files<CR>
 " nnoremap <Space>b :Buffers<CR>
 " nnoremap <Space>h :History<CR>
 " nnoremap <Space>r :Rg<CR>
+endif
 
 nnoremap <Space>% :cd %:h<CR>:pwd<CR>
 nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
@@ -213,18 +220,12 @@ cnoremap <C-b> <S-Left>
 cnoremap <C-d> <Del>
 cnoremap <C-s> <C-v>
 
-nnoremap d "_d
-vnoremap d "_d
-noremap <S-d> "_<S-d>
+nnoremap d "dd
+vnoremap d "dd
+noremap <S-d> "d<S-d>
 noremap x "_x
 noremap s "_s
 noremap c "_c
-
-nnoremap t d
-onoremap t d
-vnoremap t x
-nnoremap tt dd
-nnoremap <S-t> <S-d>
 
 onoremap ( i(
 onoremap " i"
