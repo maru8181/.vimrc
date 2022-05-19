@@ -127,8 +127,6 @@ nnoremap n nzz
 nnoremap <S-n> <S-n>zz
 nnoremap { {zz
 nnoremap } }zz
-nnoremap + <C-a>
-nnoremap - <C-x>
 nnoremap <S-y> y$
 nnoremap p ]p
 nnoremap <S-p> ]<S-p>
@@ -156,19 +154,22 @@ nnoremap <Space>c :tabclose<CR>
 nnoremap <Space>o :only<CR>
 nnoremap <Space>w :w<CR>
 nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
-nnoremap <Space>e :%s;\<<C-R><C-W>\>;gc<Left><Left><Left>;
+nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>t :vert term<CR>
 nnoremap <Space>s :tab sp<CR>
 nnoremap <Space>d :bd<CR>
+nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
+nnoremap <Space>p "0p
+nnoremap <Space><S-p> "0<S-p>
 if has('mac')
-	nnoremap <Space>r :vert term<CR>cd ~/.dotfiles/vimrc<CR>vim _vimrc<CR>
+nnoremap <Space>r :vert term<CR>cd ~/.dotfiles/vimrc<CR>vim _vimrc<CR>
 elseif has('win32') || has('win64')
-	nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
+nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
 endif
 
-if has('mac')
 " fzf
+if has('mac')
 nnoremap <Space>f :Files<CR>
 " nnoremap <Space>g :GFiles<CR>
 " nnoremap <Space>G :GFiles?<CR>
@@ -177,17 +178,12 @@ nnoremap <Space>f :Files<CR>
 " nnoremap <Space>r :Rg<CR>
 endif
 
-nnoremap <Space>% :cd %:h<CR>:pwd<CR>
-nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
-
-nnoremap <Space>m :vnew<CR>
 nnoremap <Space>( ciw(<Space><C-r>+<Space>)<Esc>
 nnoremap <Space>[ ciw[<Space><C-r>+<Space>]<Esc>
 nnoremap <Space>{ ciw{<Space><C-r>+<Space>}<Esc>
 nnoremap <Space>" ciw"<C-r>+"<Esc>
 nnoremap <Space>' ciw'<C-r>+'<Esc>
 nnoremap <Space>` ciw`<C-r>+`<Esc>
-nnoremap <Space>! %i!<Esc>%
 
 vnoremap <Space>e :s;\<<C-r>+\>;gc<Left><Left><Left>;
 vnoremap <Space>g y:tab sp<CR>:vimgrep /<C-r>+/ **
@@ -219,13 +215,6 @@ cnoremap <C-f> <S-Right>
 cnoremap <C-b> <S-Left>
 cnoremap <C-d> <Del>
 cnoremap <C-s> <C-v>
-
-nnoremap d "dd
-vnoremap d "dd
-noremap <S-d> "d<S-d>
-noremap x "_x
-noremap s "_s
-noremap c "_c
 
 onoremap ( i(
 onoremap " i"
