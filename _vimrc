@@ -201,11 +201,6 @@ noremap <S-h> ^
 noremap <C-j> <C-d>zz
 noremap <C-k> <C-u>zz
 
-if has('win32') || has('win64')
-    nnoremap + :
-    nnoremap : +
-endif
-
 cnoremap <C-v> <C-r>+
 cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
