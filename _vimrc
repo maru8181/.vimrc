@@ -54,8 +54,8 @@ let g:indent_guides_start_level = 2
 let g:EasyMotion_do_mapping = 0
 
 " nmap <Space>s <Plug>(easymotion-s2)
-map <S-j> <Plug>(easymotion-w)
-map <S-k> <Plug>(easymotion-b)
+map <Down> <Plug>(easymotion-w)
+map <Up> <Plug>(easymotion-b)
 
 " fzf settings
 let $FZF_DEFAULT_OPTS="--layout=reverse"
@@ -119,6 +119,8 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <C-]> g<C-]>
 nnoremap <C-h> g<S-t>
+nnoremap <S-j> 5gj
+nnoremap <S-k> 5gk
 nnoremap <C-l> gt
 nnoremap <Tab>l :+tabmove<CR>
 nnoremap <Tab>h :-tabmove<CR>
@@ -185,6 +187,8 @@ nnoremap <Space>" ciw"<C-r>+"<Esc>
 nnoremap <Space>' ciw'<C-r>+'<Esc>
 nnoremap <Space>` ciw`<C-r>+`<Esc>
 
+vnoremap <S-j> 5gj
+vnoremap <S-k> 5gk
 vnoremap <Space>e :s;\<<C-r>+\>;gc<Left><Left><Left>;
 vnoremap <Space>g y:tab sp<CR>:vimgrep /<C-r>+/ **
 vnoremap <Space>( c(<Space><C-r>+<Space>)<Esc>
