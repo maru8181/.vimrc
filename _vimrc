@@ -122,8 +122,6 @@ nnoremap <C-h> g<S-t>
 nnoremap <S-j> 5gj
 nnoremap <S-k> 5gk
 nnoremap <C-l> gt
-nnoremap <Tab>l :+tabmove<CR>
-nnoremap <Tab>h :-tabmove<CR>
 nnoremap <C-u> <S-j>
 nnoremap n nzz
 nnoremap <S-n> <S-n>zz
