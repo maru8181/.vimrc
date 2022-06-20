@@ -167,6 +167,7 @@ nnoremap <Space>r :vert term<CR>cd ~/.dotfiles/vimrc<CR>vim _vimrc<CR>
 elseif has('win32') || has('win64')
 nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
 endif
+cnoremap < expr > %% getcmdtype() == ':' ? expand('%: h').'/' : '%%'
 
 " fzf
 if has('mac')
