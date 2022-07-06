@@ -302,7 +302,7 @@ set ambiwidth=double
 set wildmenu
 
 set fileformats=unix,dos,mac
-set fileencodings=utf-8,sjis
+set fileencodings=utf-8,sjis,iso-2022-jp,euc-jp,cp932
 
 set tags=.tags;$HOME
 set tags+=./tags;
