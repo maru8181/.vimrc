@@ -169,6 +169,20 @@ nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
 endif
 cnoremap < expr > %% getcmdtype() == ':' ? expand('%: h').'/' : '%%'
 
+" Corne Cherry用
+nnoremap <F8> :tabclose<CR>
+nnoremap <F2> :w<CR>
+nnoremap <F5> :tab sp<CR>:vimgrep /<C-r><C-w>/ **
+" nnoremap <Space>o :only<CR>
+" nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
+" nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
+" nnoremap <Space>t :vert term<CR>
+" nnoremap <Space>s :tab sp<CR>
+" nnoremap <Space>d :bd<CR>
+" nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
+" nnoremap <Space>p "0p
+" nnoremap <Space><S-p> "0<S-p>
+" 
 " fzf
 if has('mac')
 nnoremap <Space>f :Files<CR>
