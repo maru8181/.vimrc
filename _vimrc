@@ -168,8 +168,9 @@ cnoremap < expr > %% getcmdtype() == ':' ? expand('%: h').'/' : '%%'
 " Corne Cherry用
 nnoremap <F2> :w<CR>
 nnoremap <F3> :bd<CR>
-nnoremap <F4> :tab sp<CR>
+nnoremap <F4> <C-]>
 nnoremap <F5> :tab sp<CR>:vimgrep /<C-r><C-w>/ **
+nnoremap <F6> :tab sp<CR>
 nnoremap <F7> :qa
 nnoremap <F8> :tabclose<CR>
 nnoremap <F9> "0<S-p>
