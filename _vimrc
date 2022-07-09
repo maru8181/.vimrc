@@ -53,10 +53,6 @@ let g:indent_guides_start_level = 2
 
 let g:EasyMotion_do_mapping = 0
 
-" nmap <Space>s <Plug>(easymotion-s2)
-map <Down> <Plug>(easymotion-w)
-map <Up> <Plug>(easymotion-b)
-
 " fzf settings
 let $FZF_DEFAULT_OPTS="--layout=reverse"
 let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
@@ -170,19 +166,26 @@ endif
 cnoremap < expr > %% getcmdtype() == ':' ? expand('%: h').'/' : '%%'
 
 " Corne Cherry用
-nnoremap <F8> :tabclose<CR>
 nnoremap <F2> :w<CR>
+nnoremap <F3> :bd<CR>
+nnoremap <F4> :tab sp<CR>
 nnoremap <F5> :tab sp<CR>:vimgrep /<C-r><C-w>/ **
-" nnoremap <Space>o :only<CR>
-" nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
-" nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
-" nnoremap <Space>t :vert term<CR>
-" nnoremap <Space>s :tab sp<CR>
-" nnoremap <Space>d :bd<CR>
-" nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
-" nnoremap <Space>p "0p
-" nnoremap <Space><S-p> "0<S-p>
-" 
+nnoremap <F8> :tabclose<CR>
+nnoremap <F9> "0p
+nnoremap <S-F9> "0<S-p>
+nnoremap <Left> <C-w>h
+nnoremap <Down> <C-w>j
+nnoremap <Up> <C-w>k
+nnoremap <Right> <C-w>l
+nnoremap <S-Left> <C-w><S-h>
+nnoremap <S-Down> <C-w><S-j>
+nnoremap <S-Up> <C-w><S-k>
+nnoremap <S-Right> <C-w><S-l>
+vnoremap <F5> y:tab sp<CR>:vimgrep /<C-r>+/ **
+" nmap <Plug>(easymotion-s2)
+map <PageDown> <Plug>(easymotion-w)
+map <PageUp> <Plug>(easymotion-b)
+
 " fzf
 if has('mac')
 nnoremap <Space>f :Files<CR>
