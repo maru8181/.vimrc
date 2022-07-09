@@ -170,9 +170,14 @@ nnoremap <F2> :w<CR>
 nnoremap <F3> :bd<CR>
 nnoremap <F4> :tab sp<CR>
 nnoremap <F5> :tab sp<CR>:vimgrep /<C-r><C-w>/ **
+nnoremap <F7> :qa
 nnoremap <F8> :tabclose<CR>
-nnoremap <F9> "0p
-nnoremap <S-F9> "0<S-p>
+nnoremap <F9> "0<S-p>
+nnoremap <F10> "0p
+nnoremap <F11> 5<C-w><
+nnoremap <S-F11> 5<C-w>-
+nnoremap <F12> 5<C-w>>
+nnoremap <S-F12> 5<C-w>+
 nnoremap <Left> <C-w>h
 nnoremap <Down> <C-w>j
 nnoremap <Up> <C-w>k
