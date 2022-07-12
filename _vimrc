@@ -203,23 +203,10 @@ nnoremap <Space>f :Files<CR>
 " nnoremap <Space>r :Rg<CR>
 endif
 
-nnoremap <Space>( ciw(<Space><C-r>+<Space>)<Esc>
-nnoremap <Space>[ ciw[<Space><C-r>+<Space>]<Esc>
-nnoremap <Space>{ ciw{<Space><C-r>+<Space>}<Esc>
-nnoremap <Space>" ciw"<C-r>+"<Esc>
-nnoremap <Space>' ciw'<C-r>+'<Esc>
-nnoremap <Space>` ciw`<C-r>+`<Esc>
-
 vnoremap <S-j> 5gj
 vnoremap <S-k> 5gk
 vnoremap <Space>e :s;\<<C-r>+\>;gc<Left><Left><Left>;
 vnoremap <Space>g y:tab sp<CR>:vimgrep /<C-r>+/ **
-vnoremap <Space>( c(<Space><C-r>+<Space>)<Esc>
-vnoremap <Space>[ c[<Space><C-r>+<Space>]<Esc>
-vnoremap <Space>{ c{<Space><C-r>+<Space>}<Esc>
-vnoremap <Space>" c"<C-r>+"<Esc>
-vnoremap <Space>` c`<C-r>+`<Esc>
-vnoremap <Space>' c'<C-r>+'<Esc>
 
 nnoremap <S-l> $
 onoremap <S-l> $
