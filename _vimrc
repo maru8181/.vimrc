@@ -114,11 +114,13 @@ inoremap <C-s> <C-v>
 
 nnoremap j gj
 nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 nnoremap <C-]> g<C-]>
 nnoremap <C-h> g<S-t>
+nnoremap <C-l> gt
 nnoremap <S-j> 5gj
 nnoremap <S-k> 5gk
-nnoremap <C-l> gt
 nnoremap <C-u> <S-j>
 nnoremap n nzz
 nnoremap <S-n> <S-n>zz
@@ -127,7 +129,7 @@ nnoremap } }zz
 nnoremap <S-y> y$
 nnoremap p ]p
 nnoremap <S-p> ]<S-p>
-nnoremap G Gzz
+nnoremap <S-g> <S-g>zz
 nnoremap <CR> <CR>zz
 nnoremap <BS> kzz
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
@@ -208,10 +210,11 @@ vnoremap <S-k> 5gk
 vnoremap <Space>e :s;\<<C-r>+\>;gc<Left><Left><Left>;
 vnoremap <Space>g y:tab sp<CR>:vimgrep /<C-r>+/ **
 
-nnoremap <S-l> $
-onoremap <S-l> $
-vnoremap <S-l> $h
-noremap <S-h> ^
+" nnoremap <S-l> $
+" onoremap <S-l> $
+" vnoremap <S-l> $h
+" noremap <S-h> ^
+vnoremap $ $h
 noremap <C-j> <C-d>zz
 noremap <C-k> <C-u>zz
 
@@ -420,4 +423,5 @@ augroup END
 function! NetrwMapping()
 noremap <buffer> <C-l> gt
 endfunction
+
 
