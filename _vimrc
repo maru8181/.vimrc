@@ -166,13 +166,13 @@ nnoremap <Space>r :vert term<CR>cd ~/.dotfiles/vimrc<CR>vim _vimrc<CR>
 elseif has('win32') || has('win64')
 nnoremap <Space>r :vert term<CR>cd $HOME\dotfiles\vimrc<CR>vim _vimrc<CR>
 endif
-cnoremap < expr > %% getcmdtype() == ':' ? expand('%: h').'/' : '%%'
+" cnoremap < expr > %% getcmdtype() == ':' ? expand('%: h').'/' : '%%'
 
 " Corne Cherry用
 nnoremap <F2> :w<CR>
 nnoremap <F3> :bd<CR>
 nnoremap <F4> <C-]>
-nnoremap <F5> :tab sp<CR>:vimgrep /<C-r><C-w>/ **
+nnoremap <F5> :tab sp<CR>:vimgrep /<C-r><C-w>/ **/*.*
 nnoremap <F6> :tab sp<CR>
 nnoremap <F7> :qa
 nnoremap <F8> :tabclose<CR>
@@ -190,7 +190,7 @@ nnoremap <S-Left> <C-w><S-h>
 nnoremap <S-Down> <C-w><S-j>
 nnoremap <S-Up> <C-w><S-k>
 nnoremap <S-Right> <C-w><S-l>
-vnoremap <F5> y:tab sp<CR>:vimgrep /<C-r>+/ **
+vnoremap <F5> y:tab sp<CR>:vimgrep /<C-r>+/ **/*.*
 " nmap <Plug>(easymotion-s2)
 map <PageDown> <Plug>(easymotion-w)
 map <PageUp> <Plug>(easymotion-b)
