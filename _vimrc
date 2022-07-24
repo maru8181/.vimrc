@@ -172,10 +172,10 @@ endif
 nnoremap <F2> :w<CR>
 nnoremap <F3> :bd<CR>
 nnoremap <F4> <C-]>
-nnoremap <F5> :tab sp<CR>:vimgrep /<C-r><C-w>/ **/*.*
-nnoremap <F6> :tab sp<CR>
-nnoremap <F7> :qa
-nnoremap <F8> :tabclose<CR>
+nnoremap <F5> :vimgrep /<C-r><C-w>/ **/*.*
+nnoremap <F6> "0<S-p>
+nnoremap <F7> :q
+nnoremap <F8> :vs<CR>
 nnoremap <F9> "0<S-p>
 nnoremap <F10> "0p
 nnoremap <F11> 5<C-w><
