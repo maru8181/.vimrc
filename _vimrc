@@ -124,8 +124,6 @@ nnoremap <S-k> 5gk
 nnoremap <C-u> <S-j>
 nnoremap n nzz
 nnoremap <S-n> <S-n>zz
-nnoremap { {zz
-nnoremap } }zz
 nnoremap <S-y> y$
 nnoremap p ]p
 nnoremap <S-p> ]<S-p>
