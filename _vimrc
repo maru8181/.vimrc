@@ -135,18 +135,18 @@ if has('mac')
 nnoremap , :Buffers<CR>
 endif
 
-nnoremap <Space>h <C-w>h
-nnoremap <Space>j <C-w>j
-nnoremap <Space>k <C-w>k
-nnoremap <Space>l <C-w>l
-nnoremap <Space><S-h> <C-w><S-h>
-nnoremap <Space><S-j> <C-w><S-j>
-nnoremap <Space><S-k> <C-w><S-k>
-nnoremap <Space><S-l> <C-w><S-l>
-nnoremap <Space>. 5<C-w>>
-nnoremap <Space>, 5<C-w><
-nnoremap <Space>- 5<C-w>-
-nnoremap <Space>+ 5<C-w>+
+" nnoremap <Space>h <C-w>h
+" nnoremap <Space>j <C-w>j
+" nnoremap <Space>k <C-w>k
+" nnoremap <Space>l <C-w>l
+" nnoremap <Space><S-h> <C-w><S-h>
+" nnoremap <Space><S-j> <C-w><S-j>
+" nnoremap <Space><S-k> <C-w><S-k>
+" nnoremap <Space><S-l> <C-w><S-l>
+" nnoremap <Space>. 5<C-w>>
+" nnoremap <Space>, 5<C-w><
+" nnoremap <Space>- 5<C-w>-
+" nnoremap <Space>+ 5<C-w>+
 nnoremap <Space>c :tabclose<CR>
 nnoremap <Space>o :only<CR>
 nnoremap <Space>w :w<CR>
