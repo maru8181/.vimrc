@@ -148,6 +148,7 @@ endif
 " nnoremap <Space>- 5<C-w>-
 " nnoremap <Space>+ 5<C-w>+
 nnoremap <Space>c :tabclose<CR>
+nnoremap <Space>l :let @* = expand("@:p")
 nnoremap <Space>o :only<CR>
 nnoremap <Space>w :w<CR>
 nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
