@@ -147,16 +147,16 @@ endif
 " nnoremap <Space>, 5<C-w><
 " nnoremap <Space>- 5<C-w>-
 " nnoremap <Space>+ 5<C-w>+
-nnoremap <Space>c :tabclose<CR>
+" nnoremap <Space>c :tabclose<CR>
 nnoremap <Space>l :let @* = expand("@:p")
 nnoremap <Space>o :only<CR>
-nnoremap <Space>w :w<CR>
+" nnoremap <Space>w :w<CR>
 nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
 nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>t :vert term<CR>
-nnoremap <Space>s :tab sp<CR>
-nnoremap <Space>d :bd<CR>
+" nnoremap <Space>s :tab sp<CR>
+" nnoremap <Space>d :bd<CR>
 nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 nnoremap <Space>p "0p
 nnoremap <Space><S-p> "0<S-p>
