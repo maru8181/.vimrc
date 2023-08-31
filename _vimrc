@@ -168,8 +168,6 @@ endif
 " cnoremap < expr > %% getcmdtype() == ':' ? expand('%: h').'/' : '%%'
 
 " Corne Cherry用
-nnoremap <F1> gci
-nnoremap <S-F1> gcui
 nnoremap <F2> :w<CR>
 nnoremap <F3> :bd<CR>
 nnoremap <F4> <C-]>
