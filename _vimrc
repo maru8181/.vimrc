@@ -161,7 +161,7 @@ nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 nnoremap <Space>p "0p
 nnoremap <Space><S-p> "0<S-p>
 
-nmap <Space>s <Plug>(easymotion-s2)
+" nmap <Space>s <Plug>(easymotion-s2)
 "map <PageDown> <Plug>(easymotion-w)
 "map <PageUp> <Plug>(easymotion-b)
 
