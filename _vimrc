@@ -135,31 +135,36 @@ if has('mac')
 nnoremap , :Buffers<CR>
 endif
 
-" nnoremap <Space>h <C-w>h
-" nnoremap <Space>j <C-w>j
-" nnoremap <Space>k <C-w>k
-" nnoremap <Space>l <C-w>l
-" nnoremap <Space><S-h> <C-w><S-h>
-" nnoremap <Space><S-j> <C-w><S-j>
-" nnoremap <Space><S-k> <C-w><S-k>
-" nnoremap <Space><S-l> <C-w><S-l>
-" nnoremap <Space>. 5<C-w>>
-" nnoremap <Space>, 5<C-w><
-" nnoremap <Space>- 5<C-w>-
-" nnoremap <Space>+ 5<C-w>+
-" nnoremap <Space>c :tabclose<CR>
+nnoremap <Space>h <C-w>h
+nnoremap <Space>j <C-w>j
+nnoremap <Space>k <C-w>k
+nnoremap <Space>l <C-w>l
+nnoremap <Space><S-h> <C-w><S-h>
+nnoremap <Space><S-j> <C-w><S-j>
+nnoremap <Space><S-k> <C-w><S-k>
+nnoremap <Space><S-l> <C-w><S-l>
+nnoremap <Space>. 5<C-w>>
+nnoremap <Space>, 5<C-w><
+nnoremap <Space>- 5<C-w>-
+nnoremap <Space>+ 5<C-w>+
+nnoremap <Space>c :tabclose<CR>
 nnoremap <Space>l :let @* = expand("@:p")
 nnoremap <Space>o :only<CR>
-" nnoremap <Space>w :w<CR>
+nnoremap <Space>w :w<CR>
 nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
 nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>t :vert term<CR>
 " nnoremap <Space>s :tab sp<CR>
-" nnoremap <Space>d :bd<CR>
+nnoremap <Space>d :bd<CR>
 nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 nnoremap <Space>p "0p
 nnoremap <Space><S-p> "0<S-p>
+
+nmap <Space>s <Plug>(easymotion-s2)
+"map <PageDown> <Plug>(easymotion-w)
+"map <PageUp> <Plug>(easymotion-b)
+
 if has('mac')
 nnoremap <Space>r :vert term<CR>cd ~/.dotfiles/vimrc<CR>vim _vimrc<CR>
 elseif has('win32') || has('win64')
@@ -168,31 +173,31 @@ endif
 " cnoremap < expr > %% getcmdtype() == ':' ? expand('%: h').'/' : '%%'
 
 " Corne Cherry用
-nnoremap <F2> :w<CR>
-nnoremap <F3> :bd<CR>
-nnoremap <F4> <C-]>
-nnoremap <F5> :vimgrep /<C-r><C-w>/ **/*.*
-nnoremap <F6> :sp<CR>
-nnoremap <F7> :q<CR>
-nnoremap <F8> :vs<CR>
-nnoremap <F9> "0<S-p>
-nnoremap <F10> "0p
-nnoremap <F11> 5<C-w><
-nnoremap <S-F11> 5<C-w>-
-nnoremap <F12> 5<C-w>>
-nnoremap <S-F12> 5<C-w>+
-nnoremap <Left> <C-w>h
-nnoremap <Down> <C-w>j
-nnoremap <Up> <C-w>k
-nnoremap <Right> <C-w>l
-nnoremap <S-Left> <C-w><S-h>
-nnoremap <S-Down> <C-w><S-j>
-nnoremap <S-Up> <C-w><S-k>
-nnoremap <S-Right> <C-w><S-l>
-vnoremap <F5> y:tab sp<CR>:vimgrep /<C-r>+/ **/*.*
+" nnoremap <F2> :w<CR>
+" nnoremap <F3> :bd<CR>
+" nnoremap <F4> <C-]>
+" nnoremap <F5> :vimgrep /<C-r><C-w>/ **/*.*
+" nnoremap <F6> :sp<CR>
+" nnoremap <F7> :q<CR>
+" nnoremap <F8> :vs<CR>
+" nnoremap <F9> "0<S-p>
+" nnoremap <F10> "0p
+" nnoremap <F11> 5<C-w><
+" nnoremap <S-F11> 5<C-w>-
+" nnoremap <F12> 5<C-w>>
+" nnoremap <S-F12> 5<C-w>+
+" nnoremap <Left> <C-w>h
+" nnoremap <Down> <C-w>j
+" nnoremap <Up> <C-w>k
+" nnoremap <Right> <C-w>l
+" nnoremap <S-Left> <C-w><S-h>
+" nnoremap <S-Down> <C-w><S-j>
+" nnoremap <S-Up> <C-w><S-k>
+" nnoremap <S-Right> <C-w><S-l>
+" vnoremap <F5> y:tab sp<CR>:vimgrep /<C-r>+/ **/*.*
 " nmap <Plug>(easymotion-s2)
-map <PageDown> <Plug>(easymotion-w)
-map <PageUp> <Plug>(easymotion-b)
+" map <PageDown> <Plug>(easymotion-w)
+" map <PageUp> <Plug>(easymotion-b)
 
 " fzf
 if has('mac')
