@@ -1,71 +1,121 @@
-if has("unix")
-    set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-elseif has('mac')
-    set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-elseif has('win32') || has('win64')
-    set runtimepath+=$HOME\.cache\dein\repos\github.com\Shougo\dein.vim
-endif
+" dein.vim settings {{{
+" install dir {{{
+let s:dein_dir = expand('$HOME\dotfiles\.cache\dein')
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+" }}}
 
-if dein#load_state('~/.cache/dein')
-if has("unix")
-    call dein#begin(expand('~/.cache/dein'))
-elseif has('mac')
-    call dein#begin(expand('~/.cache/dein'))
-elseif has('win32') || has('win64')
-    call dein#begin(expand('$HOME\.cache\dein'))
+" dein installation check {{{
+if &runtimepath !~# '\dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . s:dein_repo_dir
 endif
+" }}}
 
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimshell')
-call dein#add('tyru/caw.vim.git')
-call dein#add('tpope/vim-fugitive')
-call dein#add('MattesGroeger/vim-bookmarks')
-call dein#add('itchyny/lightline.vim')
-call dein#add('LeafCage/foldCC')
-call dein#add('andymass/vim-matchup')
-call dein#add('machakann/vim-highlightedyank')
-call dein#add('nathanaelkane/vim-indent-guides')
+" begin settings {{{
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+
+  " .toml file
+  let s:rc_dir = expand('$HOME\.vim')
+  if !isdirectory(s:rc_dir)
+    call mkdir(s:rc_dir, 'p')
+  endif
+  let s:toml = s:rc_dir . '\dein.toml'
+
+  " read toml and cache
+  call dein#load_toml(s:toml, {'lazy': 0})
+
+  " end settings
+  call dein#end()
+  call dein#save_state()
+endif
+" }}}
+
+" plugin installation check {{{
+if dein#check_install()
+  call dein#install()
+endif
+" }}}
+
+" plugin remove check {{{
+let s:removed_plugins = dein#check_clean()
+if len(s:removed_plugins) > 0
+  call map(s:removed_plugins, "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
+endif
+" }}}
+
+
+" if has("unix")
+"     set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" elseif has('mac')
+"     set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" elseif has('win32') || has('win64')
+"     set runtimepath+=$HOME\dotfiles\.cache\dein\repos\github.com\Shougo\dein.vim
+" endif
+
+" if dein#load_state('~/.cache/dein')
+" if has("unix")
+"     call dein#begin(expand('~/.cache/dein'))
+" elseif has('mac')
+"     call dein#begin(expand('~/.cache/dein'))
+" elseif has('win32') || has('win64')
+"     call dein#begin(expand('$HOME\dotfiles\.cache\dein'))
+" endif
+
+" call dein#add('Shougo/dein.vim')
+" call dein#add('Shougo/vimshell')
+" call dein#add('tyru/caw.vim.git')
+" call dein#add('tpope/vim-fugitive')
+" call dein#add('MattesGroeger/vim-bookmarks')
+" call dein#add('itchyny/lightline.vim')
+" call dein#add('LeafCage/foldCC')
+" call dein#add('andymass/vim-matchup')
+" call dein#add('machakann/vim-highlightedyank')
+" call dein#add('nathanaelkane/vim-indent-guides')
 "    call dein#add('ryanoasis/vim-devicons')
-call dein#add('cohama/lexima.vim')
-call dein#add('bronson/vim-trailing-whitespace')
-call dein#add('kristijanhusak/vim-hybrid-material')
+" call dein#add('cohama/lexima.vim')
+" call dein#add('bronson/vim-trailing-whitespace')
+" call dein#add('kristijanhusak/vim-hybrid-material')
 "    call dein#add('Shougo/neosnippet')
 "    call dein#add('Shougo/neosnippet-snippets')
-call dein#add('easymotion/vim-easymotion')
-call dein#add('tpope/vim-surround')
+" call dein#add('easymotion/vim-easymotion')
+" call dein#add('tpope/vim-surround')
 if has('mac')
 call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 endif
 
-call dein#end()
-call dein#save_state()
-endif
+" call dein#end()
+" call dein#save_state()
+" endif
 
-filetype plugin indent on
-if dein#check_install()
-    call dein#install()
-endif
+" filetype plugin indent on
+" if dein#check_install()
+"     call dein#install()
+" endif
 
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_color_change_percent = 1
-let g:indent_guides_guide_size = 1
-let g:indent_guides_start_level = 2
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_color_change_percent = 1
+" let g:indent_guides_guide_size = 1
+" let g:indent_guides_start_level = 2
 
-let g:EasyMotion_do_mapping = 0
+" let g:EasyMotion_do_mapping = 0
 
 " fzf settings
-let $FZF_DEFAULT_OPTS="--layout=reverse"
-let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
-let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
+" let $FZF_DEFAULT_OPTS="--layout=reverse"
+" let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
+" let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 
-syntax enable
-colorscheme hybrid_material
-set t_Co=256
+" syntax enable
+" colorscheme hybrid_material
+" set t_Co=256
 
-if (has('termguicolors'))
-    set termguicolors
-endif
+" if (has('termguicolors'))
+"     set termguicolors
+" endif
 
 "文字コードをUFT-8に設定
 set encoding=utf-8
