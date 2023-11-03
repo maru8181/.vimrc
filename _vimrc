@@ -1,121 +1,71 @@
-" dein.vim settings {{{
-" install dir {{{
-let s:dein_dir = expand('$HOME\dotfiles\.cache\dein')
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-" }}}
-
-" dein installation check {{{
-if &runtimepath !~# '\dein.vim'
-  if !isdirectory(s:dein_repo_dir)
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
-  endif
-  execute 'set runtimepath^=' . s:dein_repo_dir
+if has("unix")
+    set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+elseif has('mac')
+    set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+elseif has('win32') || has('win64')
+    set runtimepath+=$HOME\dotfiles\.cache\dein\repos\github.com\Shougo\dein.vim
 endif
-" }}}
 
-" begin settings {{{
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-
-  " .toml file
-  let s:rc_dir = expand('$HOME\.vim')
-  if !isdirectory(s:rc_dir)
-    call mkdir(s:rc_dir, 'p')
-  endif
-  let s:toml = s:rc_dir . '\dein.toml'
-
-  " read toml and cache
-  call dein#load_toml(s:toml, {'lazy': 0})
-
-  " end settings
-  call dein#end()
-  call dein#save_state()
+if dein#load_state('~/.cache/dein')
+if has("unix")
+    call dein#begin(expand('~/.cache/dein'))
+elseif has('mac')
+    call dein#begin(expand('~/.cache/dein'))
+elseif has('win32') || has('win64')
+    call dein#begin(expand('$HOME\dotfiles\.cache\dein'))
 endif
-" }}}
 
-" plugin installation check {{{
-if dein#check_install()
-  call dein#install()
-endif
-" }}}
-
-" plugin remove check {{{
-let s:removed_plugins = dein#check_clean()
-if len(s:removed_plugins) > 0
-  call map(s:removed_plugins, "delete(v:val, 'rf')")
-  call dein#recache_runtimepath()
-endif
-" }}}
-
-
-" if has("unix")
-"     set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-" elseif has('mac')
-"     set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-" elseif has('win32') || has('win64')
-"     set runtimepath+=$HOME\dotfiles\.cache\dein\repos\github.com\Shougo\dein.vim
-" endif
-
-" if dein#load_state('~/.cache/dein')
-" if has("unix")
-"     call dein#begin(expand('~/.cache/dein'))
-" elseif has('mac')
-"     call dein#begin(expand('~/.cache/dein'))
-" elseif has('win32') || has('win64')
-"     call dein#begin(expand('$HOME\dotfiles\.cache\dein'))
-" endif
-
-" call dein#add('Shougo/dein.vim')
-" call dein#add('Shougo/vimshell')
-" call dein#add('tyru/caw.vim.git')
-" call dein#add('tpope/vim-fugitive')
-" call dein#add('MattesGroeger/vim-bookmarks')
-" call dein#add('itchyny/lightline.vim')
-" call dein#add('LeafCage/foldCC')
-" call dein#add('andymass/vim-matchup')
-" call dein#add('machakann/vim-highlightedyank')
-" call dein#add('nathanaelkane/vim-indent-guides')
-"    call dein#add('ryanoasis/vim-devicons')
-" call dein#add('cohama/lexima.vim')
-" call dein#add('bronson/vim-trailing-whitespace')
-" call dein#add('kristijanhusak/vim-hybrid-material')
-"    call dein#add('Shougo/neosnippet')
-"    call dein#add('Shougo/neosnippet-snippets')
-" call dein#add('easymotion/vim-easymotion')
-" call dein#add('tpope/vim-surround')
-if has('mac')
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimshell')
+call dein#add('tyru/caw.vim.git')
+call dein#add('tpope/vim-fugitive')
+call dein#add('MattesGroeger/vim-bookmarks')
+call dein#add('itchyny/lightline.vim')
+call dein#add('LeafCage/foldCC')
+call dein#add('andymass/vim-matchup')
+call dein#add('machakann/vim-highlightedyank')
+call dein#add('nathanaelkane/vim-indent-guides')
+"   call dein#add('ryanoasis/vim-devicons')
+call dein#add('cohama/lexima.vim')
+call dein#add('bronson/vim-trailing-whitespace')
+call dein#add('kristijanhusak/vim-hybrid-material')
+"   call dein#add('Shougo/neosnippet')
+"   call dein#add('Shougo/neosnippet-snippets')
+call dein#add('easymotion/vim-easymotion')
+call dein#add('tpope/vim-surround')
+" if has('mac')
 call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+" endif
+
+call dein#end()
+call dein#save_state()
 endif
 
-" call dein#end()
-" call dein#save_state()
-" endif
+filetype plugin indent on
+if dein#check_install()
+    call dein#install()
+endif
 
-" filetype plugin indent on
-" if dein#check_install()
-"     call dein#install()
-" endif
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_color_change_percent = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_start_level = 2
 
-" let g:indent_guides_enable_on_vim_startup = 1
-" let g:indent_guides_color_change_percent = 1
-" let g:indent_guides_guide_size = 1
-" let g:indent_guides_start_level = 2
-
-" let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_do_mapping = 0
 
 " fzf settings
 " let $FZF_DEFAULT_OPTS="--layout=reverse"
 " let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
 " let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
 
-" syntax enable
-" colorscheme hybrid_material
-" set t_Co=256
+syntax enable
+colorscheme hybrid_material
+set t_Co=256
 
-" if (has('termguicolors'))
-"     set termguicolors
-" endif
+if (has('termguicolors'))
+    set termguicolors
+endif
 
 "文字コードをUFT-8に設定
 set encoding=utf-8
@@ -181,9 +131,6 @@ nnoremap <S-g> <S-g>zz
 nnoremap <CR> <CR>zz
 nnoremap <BS> kzz
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
-if has('mac')
-nnoremap , :Buffers<CR>
-endif
 
 nnoremap <Space>h <C-w>h
 nnoremap <Space>j <C-w>j
@@ -197,23 +144,27 @@ nnoremap <Space>. 5<C-w>>
 nnoremap <Space>, 5<C-w><
 nnoremap <Space>- 5<C-w>-
 nnoremap <Space>+ 5<C-w>+
-nnoremap <Space>c :tabclose<CR>
-nnoremap <Space>l :let @* = expand("@:p")
+nnoremap <Space>c :sp<CR>
+nnoremap <Space>v :vs<CR>
+" nnoremap <Space>l :let @* = expand("@:p")
 nnoremap <Space>o :only<CR>
+nnoremap <Space>q :q<CR>
 nnoremap <Space>w :w<CR>
-nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
+" nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
+nnoremap <Space>g :vimgrep /<C-r><C-w>/ **/*.*
 nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>t :vert term<CR>
-" nnoremap <Space>s :tab sp<CR>
+nnoremap <Space>s :sp<CR>
+nnoremap <Space>x :q<CR>
 nnoremap <Space>d :bd<CR>
 nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 nnoremap <Space>p "0p
 nnoremap <Space><S-p> "0<S-p>
 
-nmap <Space>s <Plug>(easymotion-s2)
-"map <PageDown> <Plug>(easymotion-w)
-"map <PageUp> <Plug>(easymotion-b)
+" nmap <Space>s <Plug>(easymotion-s2)
+map <Space>m <Plug>(easymotion-w)
+map <Space>u <Plug>(easymotion-b)
 
 if has('mac')
 nnoremap <Space>r :vert term<CR>cd ~/.dotfiles/vimrc<CR>vim _vimrc<CR>
@@ -250,14 +201,12 @@ endif
 " map <PageUp> <Plug>(easymotion-b)
 
 " fzf
-if has('mac')
 nnoremap <Space>f :Files<CR>
 " nnoremap <Space>g :GFiles<CR>
 " nnoremap <Space>G :GFiles?<CR>
-" nnoremap <Space>b :Buffers<CR>
+nnoremap <Space>b :Buffers<CR>
 " nnoremap <Space>h :History<CR>
 " nnoremap <Space>r :Rg<CR>
-endif
 
 vnoremap <S-j> 5gj
 vnoremap <S-k> 5gk
@@ -430,7 +379,7 @@ if has("unix")
 elseif has('mac')
     let undo_path = expand('~/.vim/undo')
 elseif has('win32') || has('win64')
-    let undo_path = expand('$HOME\.vim\undo')
+    let undo_path = expand('$HOME\vimfiles\.vim\undo')
 endif
 exe 'set undodir=' .. undo_path
 set undofile
