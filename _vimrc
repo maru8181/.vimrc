@@ -205,7 +205,7 @@ nnoremap <Space>f :Files<CR>
 " nnoremap <Space>g :GFiles<CR>
 " nnoremap <Space>G :GFiles?<CR>
 nnoremap <Space>b :Buffers<CR>
-nnoremap <Space>h :History<CR>
+" nnoremap <Space>h :History<CR>
 nnoremap <Space>z :Rg<CR>
 
 vnoremap <S-j> 5gj
