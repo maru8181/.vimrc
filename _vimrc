@@ -151,6 +151,7 @@ nnoremap <Space>o :only<CR>
 nnoremap <Space>q :q<CR>
 nnoremap <Space>w :w<CR>
 " nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
+nnoremap <Space>a :grep /s /I <C-r><C-w> ./*.c ./*.h
 nnoremap <Space>g :vimgrep /<C-r><C-w>/ **/*.*
 nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
@@ -265,6 +266,7 @@ set title
 " 行をまたいで移動
 set whichwrap=b,s,h,l,<,>,[,],~
 
+set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4
 " 行頭でのTab文字の表示幅
