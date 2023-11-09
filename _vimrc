@@ -146,7 +146,7 @@ nnoremap <Space>- 5<C-w>-
 nnoremap <Space>+ 5<C-w>+
 nnoremap <Space>c :sp<CR>
 nnoremap <Space>v :vs<CR>
-" nnoremap <Space>l :let @* = expand("@:p")
+nnoremap <Space>% :let @* = expand("%:p")<CR>
 nnoremap <Space>o :only<CR>
 nnoremap <Space>q :q<CR>
 nnoremap <Space>w :w<CR>
