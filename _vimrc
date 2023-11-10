@@ -55,9 +55,10 @@ let g:indent_guides_start_level = 2
 let g:EasyMotion_do_mapping = 0
 
 " fzf settings
-" let $FZF_DEFAULT_OPTS="--layout=reverse"
+let $FZF_DEFAULT_OPTS="--layout=reverse"
 " let $FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git/**'"
-" let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
+let g:fzf_layout = {'up':'~90%', 'window': { 'width': 0.8, 'height': 0.8,'yoffset':0.5,'xoffset': 0.5, 'border': 'sharp' } }
+let g:fzf_buffers_jump = 1
 
 syntax enable
 colorscheme hybrid_material
@@ -143,15 +144,15 @@ nnoremap <Space><S-l> <C-w><S-l>
 nnoremap <Space>. 5<C-w>>
 nnoremap <Space>, 5<C-w><
 nnoremap <Space>- 5<C-w>-
-nnoremap <Space>+ 5<C-w>+
-nnoremap <Space>c :sp<CR>
+nnoremap <Space>= 5<C-w>+
+nnoremap <Space>c :tab sp<CR>
 nnoremap <Space>v :vs<CR>
 nnoremap <Space>% :let @* = expand("%:p")<CR>
 nnoremap <Space>o :only<CR>
 nnoremap <Space>q :q<CR>
 nnoremap <Space>w :w<CR>
 " nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
-nnoremap <Space>a :grep /s /I <C-r><C-w> ./*.c ./*.h
+nnoremap <Space>a :grep /s /I <C-r><C-w> ./*.c ./*.h<S-Left><S-Left><Left>
 nnoremap <Space>g :vimgrep /<C-r><C-w>/ **/*.*
 nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
@@ -162,6 +163,8 @@ nnoremap <Space>d :bd<CR>
 nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 nnoremap <Space>p "0p
 nnoremap <Space><S-p> "0<S-p>
+nnoremap <Space>' <C-]>
+nnoremap <Space>; <C-t>
 
 " nmap <Space>s <Plug>(easymotion-s2)
 map <Space>m <Plug>(easymotion-w)
@@ -208,6 +211,7 @@ nnoremap <Space>f :Files<CR>
 nnoremap <Space>b :Buffers<CR>
 " nnoremap <Space>h :History<CR>
 nnoremap <Space>z :Rg<CR>
+" nnoremap <silent> <Space>' :call fzf#vim#tags(expand('<cword>'))<CR>
 
 vnoremap <S-j> 5gj
 vnoremap <S-k> 5gk
