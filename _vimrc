@@ -33,6 +33,7 @@ call dein#add('kristijanhusak/vim-hybrid-material')
 "   call dein#add('Shougo/neosnippet-snippets')
 call dein#add('easymotion/vim-easymotion')
 call dein#add('tpope/vim-surround')
+call dein#add('vim-scripts/gtags.vim')
 " if has('mac')
 call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
 call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
@@ -163,12 +164,17 @@ nnoremap <Space>d :bd<CR>
 nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 nnoremap <Space>p "0p
 nnoremap <Space><S-p> "0<S-p>
-nnoremap <Space>' <C-]>
-nnoremap <Space>; <C-t>
+" nnoremap <Space>' <C-]>
+" nnoremap <Space>; <C-t>
 
 " nmap <Space>s <Plug>(easymotion-s2)
 map <Space>m <Plug>(easymotion-w)
 map <Space>u <Plug>(easymotion-b)
+
+map <Space>; :GtagsCursor<CR>
+map <Space>' :Gtags -f %<CR>
+map <C-n> :cn<CR>
+map <C-p> :cp<CR>
 
 if has('mac')
 nnoremap <Space>r :vert term<CR>cd ~/.dotfiles/vimrc<CR>vim _vimrc<CR>
