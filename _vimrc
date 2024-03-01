@@ -164,6 +164,7 @@ nnoremap <Space>d :bd<CR>
 nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 nnoremap <Space>p "0p
 nnoremap <Space><S-p> "0<S-p>
+nnoremap <Space>y :set nowrap<CR>
 " nnoremap <Space>' <C-]>
 " nnoremap <Space>; <C-t>
 
