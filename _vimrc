@@ -167,6 +167,7 @@ nnoremap <Space><S-p> "0<S-p>
 nnoremap <Space>y :set nowrap<CR>
 " nnoremap <Space>' <C-]>
 " nnoremap <Space>; <C-t>
+nnoremap <Space>z :call Execute_gtags()<CR>
 
 " nmap <Space>s <Plug>(easymotion-s2)
 map <Space>m <Plug>(easymotion-w)
@@ -217,7 +218,7 @@ nnoremap <Space>f :Files<CR>
 " nnoremap <Space>G :GFiles?<CR>
 nnoremap <Space>b :Buffers<CR>
 " nnoremap <Space>h :History<CR>
-nnoremap <Space>z :Rg<CR>
+" nnoremap <Space>z :Rg<CR>
 " nnoremap <silent> <Space>' :call fzf#vim#tags(expand('<cword>'))<CR>
 
 vnoremap <S-j> 5gj
@@ -334,30 +335,42 @@ set wildmenu
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis,iso-2022-jp,euc-jp,cp932
 
-set tags=.tags;$HOME
-set tags+=./tags;
+" set tags=.tags;$HOME
+" set tags+=./tags;
+" 
+" function! s:execute_ctags() abort
+" " 探すタグファイル名
+" let tag_name = '.tags'
+" " ディレクトリを遡り、タグファイルを探し、パス取得
+" let tags_path = findfile(tag_name, '.;')
+" " タグファイルパスが見つからなかった場合
+" if tags_path ==# ''
+"     return
+" endif
+" 
+" " タグファイルのディレクトリパスを取得
+" " `:p:h`の部分は、:h filename-modifiersで確認
+" let tags_dirpath = fnamemodify(tags_path, ':p:h')
+" " 見つかったタグファイルのディレクトリに移動して、ctagsをバックグラウンド実行（エラー出力破棄）
+" execute 'silent !cd' tags_dirpath '&& ctags -R -f' tag_name '2> /dev/null &'
+" endfunction
+" 
+" augroup ctags
+" autocmd!
+" autocmd BufWritePost * call s:execute_ctags()
+" augroup END
 
-function! s:execute_ctags() abort
-" 探すタグファイル名
-let tag_name = '.tags'
-" ディレクトリを遡り、タグファイルを探し、パス取得
-let tags_path = findfile(tag_name, '.;')
-" タグファイルパスが見つからなかった場合
-if tags_path ==# ''
+" gtags
+function! Execute_gtags()
+let gtag_name = 'GTAGS'
+let gtags_path = findfile(gtag_name, '.;')
+if gtags_path ==# ''
     return
 endif
 
-" タグファイルのディレクトリパスを取得
-" `:p:h`の部分は、:h filename-modifiersで確認
-let tags_dirpath = fnamemodify(tags_path, ':p:h')
-" 見つかったタグファイルのディレクトリに移動して、ctagsをバックグラウンド実行（エラー出力破棄）
-execute 'silent !cd' tags_dirpath '&& ctags -R -f' tag_name '2> /dev/null &'
+let gtags_dirpath = fnamemodify(gtags_path, ':p:h')
+execute 'silent !cd 'gtags_dirpath' && gtags -v  > nul'
 endfunction
-
-augroup ctags
-autocmd!
-autocmd BufWritePost * call s:execute_ctags()
-augroup END
 
 " auto reload .vimrc
 augroup source-vimrc
