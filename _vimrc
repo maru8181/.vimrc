@@ -104,7 +104,7 @@ set laststatus=2
 " コマンドラインの補完
 set wildmode=list:longest
 
-inoremap <silent> jj <ESC>:w<CR>
+" inoremap <silent> jj <ESC>:w<CR>
 inoremap <silent> jk <ESC>
 inoremap <C-v> <C-r>+
 inoremap <C-h> <Left>
@@ -173,8 +173,8 @@ nnoremap <Space>z :call Execute_gtags()<CR>
 map <Space>m <Plug>(easymotion-w)
 map <Space>u <Plug>(easymotion-b)
 
-map <Space>; :GtagsCursor<CR>
-map <Space>' :Gtags -f %<CR>
+map <Space>; :GtagsCursor<CR>zt
+map <Space>' :Gtags -f %<CR><C-w>j<C-w><S-l>:set nowrap<CR>
 map <C-n> :cn<CR>
 map <C-p> :cp<CR>
 
