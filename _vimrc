@@ -278,7 +278,9 @@ set title
 " 行をまたいで移動
 set whichwrap=b,s,h,l,<,>,[,],~
 
-set expandtab
+" tabをスペースに
+" set expandtab
+
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
 set tabstop=4
 " 行頭でのTab文字の表示幅
