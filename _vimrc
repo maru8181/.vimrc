@@ -154,7 +154,7 @@ nnoremap <Space>q :q<CR>
 nnoremap <Space>w :w<CR>
 " nnoremap <Space>g :tab sp<CR>:vimgrep /<C-r><C-w>/ **
 nnoremap <Space>a :grep /s /I <C-r><C-w> ./*.c ./*.h<S-Left><S-Left><Left>
-nnoremap <Space>g :vs<CR>:vimgrep /<C-r><C-w>/ **/*.*
+nnoremap <Space>g :vimgrep /<C-r><C-w>/ **/*.c **/*.h
 nnoremap <Space>e :%s;\<<C-r><C-w>\>;gc<Left><Left><Left>;
 nnoremap <Space>i :vimgrep // **<Left><Left><Left><Left>
 nnoremap <Space>t :vert term<CR>
