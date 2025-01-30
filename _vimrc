@@ -165,6 +165,7 @@ nnoremap <Space>n :cd %:h<CR>:tab sp<CR>:e .<CR>:-tabmove<CR>
 nnoremap <Space>p "0p
 nnoremap <Space><S-p> "0<S-p>
 nnoremap <Space>y :set nowrap<CR>
+nnoremap <Space>/ :set guifont=Consolas:h
 " nnoremap <Space>' <C-]>
 " nnoremap <Space>; <C-t>
 nnoremap <Space>z :call Execute_gtags()<CR>
@@ -269,6 +270,7 @@ set history=10000
 set guioptions-=T
 " メニューバーを非表示にする
 set guioptions-=m
+set guioptions=M
 " 右スクロールバーを非表示
 set guioptions+=R
 " 検索にマッチした行以外を折りたたむ(フォールドする)機能
@@ -301,6 +303,8 @@ set splitright
 set autoindent
 set backspace=indent,eol,start
 set ruler
+" 文字サイズを12に設定
+set guifont=Consolas:h12
 
 " ls -laのような表示になります
 let g:netrw_liststyle=1
