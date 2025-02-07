@@ -133,6 +133,7 @@ nnoremap <S-g> <S-g>zz
 nnoremap <CR> <CR>zz
 nnoremap <BS> kzz
 nnoremap <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <C-[><C-[> :nohlsearch<CR><Esc>
 
 nnoremap <Space>h <C-w>h
 nnoremap <Space>j <C-w>j
